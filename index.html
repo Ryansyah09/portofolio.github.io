@@ -36,11 +36,33 @@
 </head>
 
 <body>
-  <!-- Tambahkan elemen audio untuk autoplay MP3 -->
-  <audio autoplay loop>
-    <source src="assets/img/backsound.mp3" type="audio/mp3">
+ <!-- Tambahkan elemen audio dan tombol untuk memutar MP3 -->
+  <audio id="backgroundMusic">
+    <source src="assets/img/backsound.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung elemen audio.
   </audio>
+  
+  <button onclick="playAudio()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; background-color: #0563bb; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    <i class="bi bi-play-fill"></i> Putar Musik
+  </button>
+
+  <script>
+    function playAudio() {
+      var audio = document.getElementById("backgroundMusic");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+  
+  <!-- Penjelasan:
+  1. Elemen <audio> tidak lagi menggunakan atribut autoplay
+  2. Ditambahkan id="backgroundMusic" untuk referensi di JavaScript
+  3. Tombol ditambahkan dengan fungsi onclick untuk memutar/menghentikan audio
+  4. Script JavaScript ditambahkan untuk mengontrol pemutaran audio
+  5. Tombol diposisikan di pojok kanan bawah menggunakan CSS -->
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
